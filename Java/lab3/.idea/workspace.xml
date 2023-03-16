@@ -5,27 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="775b148d-bb5c-49b7-851d-5186f72bf5f3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lab3/.idea/libraries/log4j_1_2_17.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab3/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab3/files/XSDValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab3/files/info.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab3/files/progs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab3/src/Channel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab3/src/Editor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab3/src/IEdit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab3/src/JSONWrite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab3/src/LogicalException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab3/src/ObjectMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab3/src/programs/DemoProgHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab3/src/programs/ProgHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab3/src/programs/ProgStaxParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab3/src/programs/Program.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab3/src/programs/Progstate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab3/src/programs/TVguide.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab3/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab3/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lab3/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab3/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lab3/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab3/lab3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lab3/lab3.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/fasterxml_jackson_core_databind.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab3" beforeDir="false" afterPath="$PROJECT_DIR$/lab3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lab3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab3/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab3/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +21,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/lab3" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/lab3/log/log4j.xml" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2LmJkMEbG93EpcbNUXmfw3LjDQC" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -43,14 +34,22 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/jlabs/Lab2",
+    "last_opened_file_path": "C:/Users/typeb/Desktop/lab3",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.customizations",
     "vue.rearranger.settings.migration": "true"
   }
