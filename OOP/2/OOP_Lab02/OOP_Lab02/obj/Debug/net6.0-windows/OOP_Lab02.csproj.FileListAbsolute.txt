@@ -19,3 +19,24 @@ D:\BSTU\Лабы\2 год\4семестр\ООП\2\OOP_Lab02\OOP_Lab02\obj\Debug
 D:\BSTU\Лабы\2 год\4семестр\ООП\2\OOP_Lab02\OOP_Lab02\obj\Debug\net6.0-windows\OOP_Lab02.Form3.resources
 D:\BSTU\Лабы\2 год\4семестр\ООП\2\OOP_Lab02\OOP_Lab02\obj\Debug\net6.0-windows\OOP_Lab02.Properties.Resources.resources
 D:\BSTU\Лабы\2 год\4семестр\ООП\2\OOP_Lab02\OOP_Lab02\obj\Debug\net6.0-windows\OOP_Lab02.Form4.resources
+C:\Users\typeb\Desktop\LABS\OOP\2\OOP_Lab02\OOP_Lab02\bin\Debug\net6.0-windows\OOP_Lab02.exe
+C:\Users\typeb\Desktop\LABS\OOP\2\OOP_Lab02\OOP_Lab02\bin\Debug\net6.0-windows\OOP_Lab02.deps.json
+C:\Users\typeb\Desktop\LABS\OOP\2\OOP_Lab02\OOP_Lab02\bin\Debug\net6.0-windows\OOP_Lab02.runtimeconfig.json
+C:\Users\typeb\Desktop\LABS\OOP\2\OOP_Lab02\OOP_Lab02\bin\Debug\net6.0-windows\OOP_Lab02.dll
+C:\Users\typeb\Desktop\LABS\OOP\2\OOP_Lab02\OOP_Lab02\bin\Debug\net6.0-windows\OOP_Lab02.pdb
+C:\Users\typeb\Desktop\LABS\OOP\2\OOP_Lab02\OOP_Lab02\obj\Debug\net6.0-windows\OOP_Lab02.csproj.AssemblyReference.cache
+C:\Users\typeb\Desktop\LABS\OOP\2\OOP_Lab02\OOP_Lab02\obj\Debug\net6.0-windows\OOP_Lab02.Form1.resources
+C:\Users\typeb\Desktop\LABS\OOP\2\OOP_Lab02\OOP_Lab02\obj\Debug\net6.0-windows\OOP_Lab02.Form2.resources
+C:\Users\typeb\Desktop\LABS\OOP\2\OOP_Lab02\OOP_Lab02\obj\Debug\net6.0-windows\OOP_Lab02.Form3.resources
+C:\Users\typeb\Desktop\LABS\OOP\2\OOP_Lab02\OOP_Lab02\obj\Debug\net6.0-windows\OOP_Lab02.Form4.resources
+C:\Users\typeb\Desktop\LABS\OOP\2\OOP_Lab02\OOP_Lab02\obj\Debug\net6.0-windows\OOP_Lab02.Properties.Resources.resources
+C:\Users\typeb\Desktop\LABS\OOP\2\OOP_Lab02\OOP_Lab02\obj\Debug\net6.0-windows\OOP_Lab02.csproj.GenerateResource.cache
+C:\Users\typeb\Desktop\LABS\OOP\2\OOP_Lab02\OOP_Lab02\obj\Debug\net6.0-windows\OOP_Lab02.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\typeb\Desktop\LABS\OOP\2\OOP_Lab02\OOP_Lab02\obj\Debug\net6.0-windows\OOP_Lab02.AssemblyInfoInputs.cache
+C:\Users\typeb\Desktop\LABS\OOP\2\OOP_Lab02\OOP_Lab02\obj\Debug\net6.0-windows\OOP_Lab02.AssemblyInfo.cs
+C:\Users\typeb\Desktop\LABS\OOP\2\OOP_Lab02\OOP_Lab02\obj\Debug\net6.0-windows\OOP_Lab02.csproj.CoreCompileInputs.cache
+C:\Users\typeb\Desktop\LABS\OOP\2\OOP_Lab02\OOP_Lab02\obj\Debug\net6.0-windows\OOP_Lab02.dll
+C:\Users\typeb\Desktop\LABS\OOP\2\OOP_Lab02\OOP_Lab02\obj\Debug\net6.0-windows\refint\OOP_Lab02.dll
+C:\Users\typeb\Desktop\LABS\OOP\2\OOP_Lab02\OOP_Lab02\obj\Debug\net6.0-windows\OOP_Lab02.pdb
+C:\Users\typeb\Desktop\LABS\OOP\2\OOP_Lab02\OOP_Lab02\obj\Debug\net6.0-windows\OOP_Lab02.genruntimeconfig.cache
+C:\Users\typeb\Desktop\LABS\OOP\2\OOP_Lab02\OOP_Lab02\obj\Debug\net6.0-windows\ref\OOP_Lab02.dll
