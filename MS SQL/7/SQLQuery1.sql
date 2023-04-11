@@ -1,146 +1,75 @@
+--select TEACHER[Код], TEACHER_NAME [Имя], GENDER[Пол], PULPIT[Кафедра]
+--from TEACHER;
 use UNIVER
-select PROGRESS.SUBJECT, GROUPS.PROFESSION, avg(PROGRESS.NOTE)[Средняя оценка]
-from FACULTY inner join GROUPS on FACULTY.FACULTY = GROUPS.FACULTY
-inner join STUDENT on STUDENT.IDGROUP =GROUPS.IDGROUP
-inner join PROGRESS on STUDENT.IDSTUDENT = PROGRESS.IDSTUDENT
-where FACULTY.FACULTY = 'ТОВ'
-group by PROGRESS.SUBJECT, GROUPS.PROFESSION
---1
-select PROGRESS.SUBJECT, GROUPS.PROFESSION, avg(PROGRESS.NOTE)[Средняя оценка]
-from FACULTY inner join GROUPS on FACULTY.FACULTY = GROUPS.FACULTY
-inner join STUDENT on STUDENT.IDGROUP =GROUPS.IDGROUP
-inner join PROGRESS on STUDENT.IDSTUDENT = PROGRESS.IDSTUDENT
-where FACULTY.FACULTY = 'ТОВ'
-group by rollup( PROGRESS.SUBJECT, GROUPS.PROFESSION)
+go
+create view [Преподователь]
+as select TEACHER[Код], TEACHER_NAME [Имя], GENDER[Пол], PULPIT[Кафедра]
+from TEACHER;
+go
+select * from [Преподователь]
+go
 --2
-
-select PROGRESS.SUBJECT, GROUPS.PROFESSION, avg(PROGRESS.NOTE)[Средняя оценка]
-from FACULTY inner join GROUPS on FACULTY.FACULTY = GROUPS.FACULTY
-inner join STUDENT on STUDENT.IDGROUP =GROUPS.IDGROUP
-inner join PROGRESS on STUDENT.IDSTUDENT = PROGRESS.IDSTUDENT
-where FACULTY.FACULTY = 'ТОВ'
-group by cube( PROGRESS.SUBJECT, GROUPS.PROFESSION)
+create view [Количество кафедр]
+as select FACULTY_NAME[факультет], COUNT(*)[количество кафедр ]
+from PULPIT inner join FACULTY on FACULTY.FACULTY = PULPIT.FACULTY
+group by FACULTY_NAME
+go
 --3
-select PROGRESS.SUBJECT, GROUPS.PROFESSION, avg(PROGRESS.NOTE)[Средняя оценка]
-from FACULTY inner join GROUPS on FACULTY.FACULTY = GROUPS.FACULTY
-inner join STUDENT on STUDENT.IDGROUP =GROUPS.IDGROUP
-inner join PROGRESS on STUDENT.IDSTUDENT = PROGRESS.IDSTUDENT
-where FACULTY.FACULTY = 'ТОВ'
-group by PROGRESS.SUBJECT, GROUPS.PROFESSION
-union
-select PROGRESS.SUBJECT, GROUPS.PROFESSION, avg(PROGRESS.NOTE)[Средняя оценка]
-from FACULTY inner join GROUPS on FACULTY.FACULTY = GROUPS.FACULTY
-inner join STUDENT on STUDENT.IDGROUP =GROUPS.IDGROUP
-inner join PROGRESS on STUDENT.IDSTUDENT = PROGRESS.IDSTUDENT
-where FACULTY.FACULTY = 'ХТиТ'
-group by PROGRESS.SUBJECT, GROUPS.PROFESSION
---
-select PROGRESS.SUBJECT, GROUPS.PROFESSION, avg(PROGRESS.NOTE)[Средняя оценка]
-from FACULTY inner join GROUPS on FACULTY.FACULTY = GROUPS.FACULTY
-inner join STUDENT on STUDENT.IDGROUP =GROUPS.IDGROUP
-inner join PROGRESS on STUDENT.IDSTUDENT = PROGRESS.IDSTUDENT
-where FACULTY.FACULTY = 'ТОВ'
-group by PROGRESS.SUBJECT, GROUPS.PROFESSION
-union all
-select PROGRESS.SUBJECT, GROUPS.PROFESSION, avg(PROGRESS.NOTE)[Средняя оценка]
-from FACULTY inner join GROUPS on FACULTY.FACULTY = GROUPS.FACULTY
-inner join STUDENT on STUDENT.IDGROUP =GROUPS.IDGROUP
-inner join PROGRESS on STUDENT.IDSTUDENT = PROGRESS.IDSTUDENT
-where FACULTY.FACULTY = 'ХТиТ'
-group by PROGRESS.SUBJECT, GROUPS.PROFESSION
+create view [Аудитории]
+as select AUDITORIUM[Код], AUDITORIUM_TYPE[Наименование аудитории]
+from AUDITORIUM
+where AUDITORIUM_TYPE like 'ЛК%'
+go
+insert [Аудитории] 
 --4
-select PROGRESS.SUBJECT, GROUPS.PROFESSION, avg(PROGRESS.NOTE)[Средняя оценка]
-from FACULTY inner join GROUPS on FACULTY.FACULTY = GROUPS.FACULTY
-inner join STUDENT on STUDENT.IDGROUP =GROUPS.IDGROUP
-inner join PROGRESS on STUDENT.IDSTUDENT = PROGRESS.IDSTUDENT
-where FACULTY.FACULTY = 'ТОВ'
-group by PROGRESS.SUBJECT, GROUPS.PROFESSION
-INTERSECT
-select PROGRESS.SUBJECT, GROUPS.PROFESSION, avg(PROGRESS.NOTE)[Средняя оценка]
-from FACULTY inner join GROUPS on FACULTY.FACULTY = GROUPS.FACULTY
-inner join STUDENT on STUDENT.IDGROUP =GROUPS.IDGROUP
-inner join PROGRESS on STUDENT.IDSTUDENT = PROGRESS.IDSTUDENT
-where FACULTY.FACULTY = 'ХТиТ'
-group by PROGRESS.SUBJECT, GROUPS.PROFESSION
+create view [Лекционные_аудитории]
+as select AUDITORIUM, AUDITORIUM_TYPE
+from AUDITORIUM
+where AUDITORIUM_TYPE like 'ЛК%' with check option;
+go
 --5
-select PROGRESS.SUBJECT, GROUPS.PROFESSION, avg(PROGRESS.NOTE)[Средняя оценка]
-from FACULTY inner join GROUPS on FACULTY.FACULTY = GROUPS.FACULTY
-inner join STUDENT on STUDENT.IDGROUP =GROUPS.IDGROUP
-inner join PROGRESS on STUDENT.IDSTUDENT = PROGRESS.IDSTUDENT
-where FACULTY.FACULTY = 'ТОВ'
-group by PROGRESS.SUBJECT, GROUPS.PROFESSION
-EXCEPT
-select PROGRESS.SUBJECT, GROUPS.PROFESSION, avg(PROGRESS.NOTE)[Средняя оценка]
-from FACULTY inner join GROUPS on FACULTY.FACULTY = GROUPS.FACULTY
-inner join STUDENT on STUDENT.IDGROUP =GROUPS.IDGROUP
-inner join PROGRESS on STUDENT.IDSTUDENT = PROGRESS.IDSTUDENT
-where FACULTY.FACULTY = 'ХТиТ'
-group by PROGRESS.SUBJECT, GROUPS.PROFESSION
---task6
+create view [Дисциплины]
+as select top 10 SUBJECT.SUBJECT[Код], SUBJECT.SUBJECT_NAME[наименование дисциплины ], SUBJECT.PULPIT[код кафедры]
+from SUBJECT
+order by SUBJECT_NAME
+go
+--6
+alter view [Количество_кафедр] with schemabinding
+as select FACULTY_NAME[факультет], COUNT(*)[количество кафедр ]
+from dbo.PULPIT inner join  dbo.FACULTY on FACULTY.FACULTY = PULPIT.FACULTY
+group by FACULTY_NAME;
+go
 
-use Zhuk_Base
-select  Факультативы.Название_факультатива, avg(Успеваемость.Средняя_оценка)[Средняя оценка]
-from Студенты inner join Факультативы on Студенты.Факультатив = Факультативы.Название_факультатива
-inner join Успеваемость on Студенты.Номер_студенческого = Успеваемость.Номер_студенческого
-where Факультативы.Название_факультатива in ('Математика')
-group by Факультативы.Название_факультатива
---
-select  Факультативы.Название_факультатива, avg(Успеваемость.Средняя_оценка)[Средняя оценка]
-from Студенты inner join Факультативы on Студенты.Факультатив = Факультативы.Название_факультатива
-inner join Успеваемость on Студенты.Номер_студенческого = Успеваемость.Номер_студенческого
-where Факультативы.Название_факультатива in ('Математика')
-group by rollup (Факультативы.Название_факультатива)
---
-select  Факультативы.Название_факультатива, avg(Успеваемость.Средняя_оценка)[Средняя оценка]
-from Студенты inner join Факультативы on Студенты.Факультатив = Факультативы.Название_факультатива
-inner join Успеваемость on Студенты.Номер_студенческого = Успеваемость.Номер_студенческого
-where Факультативы.Название_факультатива in ('Математика')
-group by cube (Факультативы.Название_факультатива)
---
-select  Факультативы.Название_факультатива, avg(Успеваемость.Средняя_оценка)[Средняя оценка]
-from Студенты inner join Факультативы on Студенты.Факультатив = Факультативы.Название_факультатива
-inner join Успеваемость on Студенты.Номер_студенческого = Успеваемость.Номер_студенческого
-where Факультативы.Название_факультатива in ('Математика')
-group by Факультативы.Название_факультатива
-union
-select  Факультативы.Название_факультатива, avg(Успеваемость.Средняя_оценка)[Средняя оценка]
-from Студенты inner join Факультативы on Студенты.Факультатив = Факультативы.Название_факультатива
-inner join Успеваемость on Студенты.Номер_студенческого = Успеваемость.Номер_студенческого
-where Факультативы.Название_факультатива in ('Английский')
-group by Факультативы.Название_факультатива
-
-select  Факультативы.Название_факультатива, avg(Успеваемость.Средняя_оценка)[Средняя оценка]
-from Студенты inner join Факультативы on Студенты.Факультатив = Факультативы.Название_факультатива
-inner join Успеваемость on Студенты.Номер_студенческого = Успеваемость.Номер_студенческого
-where Факультативы.Название_факультатива in ('Математика')
-group by Факультативы.Название_факультатива
-union all
-select  Факультативы.Название_факультатива, avg(Успеваемость.Средняя_оценка)[Средняя оценка]
-from Студенты inner join Факультативы on Студенты.Факультатив = Факультативы.Название_факультатива
-inner join Успеваемость on Студенты.Номер_студенческого = Успеваемость.Номер_студенческого
-where Факультативы.Название_факультатива in ('Английский')
-group by Факультативы.Название_факультатива
---4
-select  Факультативы.Название_факультатива, avg(Успеваемость.Средняя_оценка)[Средняя оценка]
-from Студенты inner join Факультативы on Студенты.Факультатив = Факультативы.Название_факультатива
-inner join Успеваемость on Студенты.Номер_студенческого = Успеваемость.Номер_студенческого
-where Факультативы.Название_факультатива in ('Математика')
-group by Факультативы.Название_факультатива
-INTERSECT
-select  Факультативы.Название_факультатива, avg(Успеваемость.Средняя_оценка)[Средняя оценка]
-from Студенты inner join Факультативы on Студенты.Факультатив = Факультативы.Название_факультатива
-inner join Успеваемость on Студенты.Номер_студенческого = Успеваемость.Номер_студенческого
-where Факультативы.Название_факультатива in ('Английский')
-group by Факультативы.Название_факультатива
+--7
+--7,1
+USE S_MyBase;
+GO
+CREATE VIEW Детали_простые
+AS
+SELECT * FROM Детали WHERE Сложность = 1;
+--7,2
+CREATE VIEW Операции_простые
+AS
+SELECT * FROM Операции WHERE Признак_сложности <= 5;
+--7,3
+CREATE VIEW Сотрудники_операции
+AS
+SELECT Работники.ID, Работники.Фамилия, Работники.Отчество, Операции.Наименование_операции AS Операция
+FROM Работники JOIN Операции ON Работники.Операции = Операции.Признак_сложности;
+--7,4
+CREATE VIEW Работники_адреса
+AS
+SELECT * FROM Работники WHERE Адрес IS NOT NULL;
+go
 --5
-select  Факультативы.Название_факультатива, avg(Успеваемость.Средняя_оценка)[Средняя оценка]
-from Студенты inner join Факультативы on Студенты.Факультатив = Факультативы.Название_факультатива
-inner join Успеваемость on Студенты.Номер_студенческого = Успеваемость.Номер_студенческого
-where Факультативы.Название_факультатива in ('Математика')
-group by Факультативы.Название_факультатива
-EXCEPT
-select  Факультативы.Название_факультатива, avg(Успеваемость.Средняя_оценка)[Средняя оценка]
-from Студенты inner join Факультативы on Студенты.Факультатив = Факультативы.Название_факультатива
-inner join Успеваемость on Студенты.Номер_студенческого = Успеваемость.Номер_студенческого
-where Факультативы.Название_факультатива in ('Английский')
-group by Факультативы.Название_факультатива
+CREATE VIEW Детали_с_коэффициентом_больше_500
+AS
+SELECT * FROM Детали WHERE Коэффициент_сложности_на_количество_деталей > 500;
+----6
+alter view [Кол-во работников] with schemabinding
+as select Работники.ID[обозначение], count(*)[кол-во работников]
+from dbo.Работники_адреса inner join dbo.Детали_простые on Работники_адреса.Стаж = Детали_простые.Коэффициент_сложности_на_количество_деталей
+group by Работники.ID;
+go
+
+
