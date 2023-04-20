@@ -106,52 +106,52 @@ ii.object_id and ss.index_id = ii.index_id where name is not null
 --task7
 
 --7,1
-use Zhuk_Base
-exec sp_helpindex'Студенты'
+use S_MyBase
+exec sp_helpindex'Работники'
 
-select * from Успеваемость where Средняя_оценка between 6 and 10 order by Средняя_оценка
+select * from Работники where Стаж between 0 and 3 order by Стаж
 checkpoint;
 
 dbcc dropcleanbuffers;
 
 --create clustered index #Успеваемость on Успеваемость(Средняя_оценка asc)
  --7.2	
- select count(*)[Кол-во строк] from Успеваемость;
-select * from Успеваемость;
+ select count(*)[Кол-во строк] from Детали;
+select * from Операции;
 
-create index Успеваемость on Успеваемость(ID, Номер_студенческого)
+create index Стаж_Работника on Операции(Наименование_операции, Признак_сложности)
 
-select * from Успеваемость where Средняя_оценка > 4 and Число_пропусков < 5
-select * from Успеваемость order by Средняя_оценка, Число_пропусков
+select * from Работники where Стаж > 1 and ID < 5
+select * from Работники order by Стаж, ID
 
-select * from Успеваемость where Средняя_оценка = 6
+select * from Работники where Стаж = 3
 
 --7,3
-create index Успеваемость2 on Успеваемость(ID) include (Номер_студенческого)
+create index Работа on Работники(ID) include (Стаж)
 
-select Номер_студенческого from Успеваемость where ID >5
+select Работники.Стаж from Работники where ID >5
 
 --7.4
-select Средняя_оценка from Успеваемость where Средняя_оценка between 4 and 7
-select Средняя_оценка from Успеваемость where Средняя_оценка >3 and id<6
-select Средняя_оценка from Успеваемость where Средняя_оценка =7
+select Работники.ID from Работники where Работники.Стаж between 1 and 3
+select Работники.ID from Работники where Работники.Стаж > 4 and id<6
+select Работники.ID from Работники where Работники.Стаж =7
 
-create index СредняяУспеваемость on Успеваемость(Средняя_оценка) where Средняя_оценка > 3 and Средняя_оценка < 8
+create index СреднийСтаж on Работники(Стаж) where Стаж > 3 and Стаж < 8
 
 --7.5
-insert Успеваемость values (8, 88888, 1, 2) select id from Успеваемость
+insert Работники values (8, 88888, 1, 2) select ID from Работники	
 select name[Индекс], avg_fragmentation_in_percent[Фрагментация(%)]
-from sys.dm_db_index_physical_stats(DB_ID(N'Zhuk_Base'),
+from sys.dm_db_index_physical_stats(DB_ID(N'S_MyBase'),
 OBJECT_ID(N'Успеваемость'), NULL, NULL, NULL) ss JOIN sys.indexes ii on ss.object_id = 
 ii.object_id and ss.index_id = ii.index_id where name is not null
 
-alter index СредняяУспеваемость on Успеваемость reorganize;
+alter index СреднийСтаж on Стаж reorganize;
 
-alter index СредняяУспеваемость on Успеваемость rebuild with (online = off);
+alter index СреднийСтаж on Стаж rebuild with (online = off);
 
 --7.6
-drop index СредняяУспеваемость on Успеваемость
-create index СредняяУспеваемость2 ON Успеваемость(id) with (fillfactor = 65)
+drop index СреднийСтаж on Стаж
+create index СреднийСтаж2 ON Работники(id) with (fillfactor = 65)
 
 --insert top(50) percent into Успеваемость(id, name)
 --select id, name from Успеваемость

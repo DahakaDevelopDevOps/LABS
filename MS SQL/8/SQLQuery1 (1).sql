@@ -73,12 +73,13 @@ from Работники
 order by Работники.ID desc;
 go
 ----6
-create view [Кол-во_работников] with schemabinding
+alter view [Кол-во работников] with schemabinding
 as select Работники.ID[Идентификация], count(*)[кол-во работнииков]
 from Работники inner join Операции on Работники.Стаж = Операции.Признак_сложности
 group by Работники.ID;
 go
 
-drop table Студенты
+
+drop table Работник 
 
 insert [Кол-во работников] values (1, 1111, 2,3)

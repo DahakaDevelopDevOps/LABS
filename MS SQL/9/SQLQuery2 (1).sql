@@ -52,7 +52,7 @@ set @z = power( sin(@t), 2);
 else if ( @t < @x ) set @z = 4*(@t + @x);
 else set @z = 1 - exp(@x -2);
 print 'z = '+ cast(@z as varchar(10));
------------------------------
+----------------------------iolklkl
 --4.2
 declare  @student nvarchar(max) = (select top(1) STUDENT.NAME from STUDENT), @surname varchar(20),@fname varchar(20), @midname varchar(20), @Shortname nvarchar(100);
 set @surname = substring(@student, 1,CHARINDEX(' ', @student));
@@ -71,7 +71,7 @@ DECLARE @testday date
 SET @testday = (SELECT PROGRESS.PDATE
         FROM PROGRESS Inner Join STUDENT ON PROGRESS.IDSTUDENT = STUDENT.IDSTUDENT
         WHERE PROGRESS.SUBJECT in('БД') and STUDENT.IDSTUDENT in('1001'))
-PRINT 'День недели, в который студент 1002 сдавал экзамен по БД: ' + CONVERT (varchar(12), DATEPART(dw, @testday))
+PRINT 'День недели, в который студент 1001 сдавал экзамен по БД: ' + CONVERT (varchar(12), DATEPART(dw, @testday))
 ---------------------------------------
 --5
 declare @capacity int = (select count(*) from AUDITORIUM_TYPE)
